@@ -22,9 +22,9 @@
     border-radius: 3px;
 }
 
-.menu li a:hover {
+.menu .anchor:hover {
     color: #000;
-    background-color: #fff;
+    background-color: gold;
     transition: all linear .4s;
 }
 

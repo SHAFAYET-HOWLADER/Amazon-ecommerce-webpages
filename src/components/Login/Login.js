@@ -1,23 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import './Login.css'
+import {useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 const Login = () => {
+  const navigate  = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+  if(user){
+   navigate("/shop");
+  }
+
+  const handleEmailBlur = (event)=>{
+    setEmail(event.target.value);
+  }
+  const handlePassBlur = (event)=>{
+    setPassword(event.target.value);
+  }
+  const createLoginUser = (event)=>{
+    event.preventDefault();
+    signInWithEmailAndPassword(email,password);
+  }
     return (
         <div className='form_container'>
             <h2 className='form_title'>Login</h2>
              <div>
-              <form>
+              <form onSubmit={createLoginUser}>
                   <div className='input_group'>
                     <label htmlFor='email'>Email</label>
-                    <input type='email' placeholder='Your Email'/>
+                    <input onBlur={handleEmailBlur} type='email' placeholder='Your Email'required/>
                   </div> 
                   <div className='input_group'>
                     <label htmlFor='password'>Password</label>
-                    <input type='password' placeholder='Your Password'/>
+                    <input onBlur={handlePassBlur} type='password' placeholder='Your Password'required/>
                   </div>
+                  <p>{error?.message}</p>
+                  <p>{loading}</p>
                   <div className='login_btn'>
-                   <button type='button'>Login</button>
+                   <input className='login_btn' type='submit' value='Login'/>
                   </div>
               </form>
             <div className='new_user'>
@@ -33,5 +60,5 @@ const Login = () => {
         </div>
     );
 };
-
+ 
 export default Login;

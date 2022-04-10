@@ -11,6 +11,8 @@ const Header = () => {
                    <li><CustomLink className="anchor" to="/order">Order </CustomLink></li>
                    <li><CustomLink className="anchor" to="/inventory">Inventory</CustomLink></li>
                    <li><CustomLink className="anchor" to="/about">About</CustomLink></li>
+                   <li><CustomLink to="login" className="anchor">Login</CustomLink></li>
+                   <li><CustomLink to="signUp" className="anchor">SignUp</CustomLink></li>
            </div>
         </nav>
     );

@@ -14,8 +14,8 @@
 .menu li a {
     text-decoration: none;
     list-style-type: none;
-    line-height: 80px;
-    padding: 5px 35px;
+    /* line-height: 80px; */
+    padding: 5px 20px;
     font-weight: 400;
     font-size: 17px;
     color: #fff;
@@ -30,4 +30,18 @@
 
 .menu {
     display: flex;
+}
+.menu .right_arrow{
+    vertical-align: middle;
+    color: orange;
+}
+.menu button{
+    border: none;
+    border-radius: 3px;
+    padding: 0px 8px;
+    font-weight: 400;
+    font-size: 17px;
+    vertical-align: middle;
+    cursor: pointer;
+    padding: 4px 10px 4px;
 }

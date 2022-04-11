@@ -26,9 +26,9 @@ const handleRemove  = (product)=>{
          </div>
          <div className="shop_side_bar">
             <Cart carts={carts}>
-                <Link to="/preview">
+                <Link to="/shipment">
                    <button>
-                       <h3>Proceed order</h3>
+                       <h3>Proceed Shipment</h3>
                    </button>
                 </Link>
             </Cart>
